@@ -21,7 +21,7 @@ def trade(
     """
     console.print("\n[bold cyan]Initiating Order Request...[/bold cyan]")
     
-    try:
+try:
         response = place_order(symbol, side, order_type, quantity, price, stop_price)
         
         # Displaying a clean table for order response
@@ -33,19 +33,25 @@ def trade(
         table.add_column("Status")
         table.add_column("Executed Qty")
         
+        # Safely extract fields for both Standard and Algo/Conditional orders
+        order_id = response.get('orderId') or response.get('algoId', 'N/A')
+        o_type = response.get('origType') or response.get('orderType', 'N/A')
+        status = response.get('status') or response.get('algoStatus', 'N/A')
+        exec_qty = response.get('executedQty') or "0.0000"
+        
         table.add_row(
-            str(response.get('orderId')),
-            response.get('symbol'),
-            response.get('side'),
-            response.get('origType'),
-            response.get('status'),
-            str(response.get('executedQty'))
+            str(order_id),
+            str(response.get('symbol', 'N/A')),
+            str(response.get('side', 'N/A')),
+            str(o_type),
+            str(status),
+            str(exec_qty)
         )
         
         console.print(table)
         console.print("[bold green]✔ Order successfully placed![/bold green]\n")
         
-    except Exception as e:
+except Exception as e:
         console.print(f"[bold red]✘ Order Failed:[/bold red] {e}\n")
 
 if __name__ == "__main__":
