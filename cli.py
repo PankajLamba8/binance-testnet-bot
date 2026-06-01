@@ -21,7 +21,8 @@ def trade(
     """
     console.print("\n[bold cyan]Initiating Order Request...[/bold cyan]")
     
-try:
+    try:
+        # Execute the order logic from the orders module
         response = place_order(symbol, side, order_type, quantity, price, stop_price)
         
         # Displaying a clean table for order response
@@ -51,7 +52,7 @@ try:
         console.print(table)
         console.print("[bold green]✔ Order successfully placed![/bold green]\n")
         
-except Exception as e:
+    except Exception as e:
         console.print(f"[bold red]✘ Order Failed:[/bold red] {e}\n")
 
 if __name__ == "__main__":
