@@ -2,7 +2,7 @@
 
 A production-ready, modular Python CLI application built to execute trades programmatically on the Binance Futures Testnet platform using secure asynchronous API interactions.
 
-## 🚀 Key Features Built From Scratch
+##  Key Features Built From Scratch
 - **Modular Architecture:** Clean segregation between the configuration layers, core API wrappers, structural validation, and interactive CLI layout.
 - **Advanced CLI UX:** Leverages `Typer` and `Rich` to handle input arguments gracefully and output beautiful, scannable execution tables natively in the terminal.
 - **Robust Exception Handling:** Full validation patterns to intercept bad user inputs locally before exhausting API limits or facing server-side connection errors.
@@ -11,7 +11,7 @@ A production-ready, modular Python CLI application built to execute trades progr
 
 ---
 
-## 🛠️ Local System Configuration
+##  Local System Configuration
 
 ### 1. Prerequisites
 Ensure your local environment has Python 3.8+ installed on your system.
